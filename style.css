@@ -36,7 +36,11 @@ a:visited {
 
 #end {
     width: 33%;
-    margin-left: 5%;
+    margin-left: 3%;
+ }
+#end6 {
+    width: 33%;
+  	margin-left: 3%;
  }
 
 #end2 {
@@ -59,3 +63,4 @@ a:visited {
 #end5 {
   	margin-left: 5%;
  }
+
