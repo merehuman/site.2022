@@ -1,0 +1,41 @@
+html {
+  	font-family: 'Roboto Mono', monospace;
+  	background: white;
+  	margin-top: 10px;
+}
+
+table {
+	/*border-collapse: collapse;*/
+}
+
+table {
+	padding: 5px;
+	margin: 10px;
+}
+
+td {
+	background: white;
+  	border: 1px solid black;
+  	padding: 5px;
+}
+
+td:hover {
+	background: #f4ff1f;
+}
+
+th {
+	background: black;
+	color: white;
+	/*border: 1px solid white;*/
+	padding: 5px;
+}
+a:link {
+	color: black;
+}
+a:visited {
+	color:  black;
+}
+
+.blackbutton {
+	color: white;
+}
