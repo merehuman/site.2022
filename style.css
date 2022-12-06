@@ -1,34 +1,15 @@
 html {
   	font-family: 'Roboto Mono', monospace;
-  	background: white;
-  	margin-top: 10px;
+  	margin: 30px;
 }
 
-table {
-	/*border-collapse: collapse;*/
+div {
+	width: fit-content;
+    border: 2px solid black;
+    padding: 5px;
+    word-wrap: break-word;
 }
 
-table {
-	padding: 5px;
-	margin: 10px;
-}
-
-td {
-	background: white;
-  	border: 1px solid black;
-  	padding: 5px;
-}
-
-td:hover {
-	background: #f4ff1f;
-}
-
-th {
-	background: black;
-	color: white;
-	/*border: 1px solid white;*/
-	padding: 5px;
-}
 a:link {
 	color: black;
 }
@@ -36,6 +17,45 @@ a:visited {
 	color:  black;
 }
 
-.blackbutton {
-	color: white;
+.table {
+	border: none;
 }
+
+.inline {
+	display: inline;
+	line-height:45px;
+}
+
+#start {
+	background: black;
+	color: white;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#end {
+    width: 33%;
+    margin-left: 5%;
+ }
+
+#end2 {
+    margin-left: 75%;
+ }
+
+#end3 {
+ 	background: black;
+	color: white;
+  	display: block;
+  	margin-left: 55%;
+    margin-top: auto;
+    margin-bottom: auto;
+ }
+
+#end4 {
+  	margin-left: 10%;
+ }
+
+#end5 {
+  	margin-left: 5%;
+ }
