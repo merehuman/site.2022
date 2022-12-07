@@ -1,13 +1,5 @@
 html {
   	font-family: 'Roboto Mono', monospace;
-  	margin: 30px;
-}
-
-div {
-	width: fit-content;
-    border: 1.5px solid black;
-    padding: 10px;
-    word-wrap: break-word;
 }
 
 a:link {
@@ -17,50 +9,91 @@ a:visited {
 	color:  black;
 }
 
+@media (max-width: 500px) {
+body {
+	font-size: 75%;
+}
+}
+
+.div {
+	width: fit-content;
+    border: 1.5px solid black;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
 .table {
 	border: none;
+	width: fit-content;
 }
 
 .inline {
 	display: inline;
+    border: 1.5px solid black;
+    padding: 10px;
 	line-height:45px;
+	word-wrap: break-word;
 }
 
 #start {
 	background: black;
 	color: white;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
+	position: absolute;
+    left: 45%;
+    top: 5%;
 }
 
 #end {
-    width: 33%;
-    margin-left: 3%;
- }
-#end6 {
-    width: 33%;
-  	margin-left: 3%;
+	display: block;
+	width: 400px;
+	position: absolute;
+    left: 5%;
+    top: 20%;
+	overflow: hidden;
  }
 
 #end2 {
-    margin-left: 75%;
+	display: block;
+	position: absolute;
+    right: 5%;
+    top: 5%;
+	overflow: hidden;
  }
 
 #end3 {
  	background: black;
 	color: white;
-  	display: block;
-  	margin-left: 55%;
-    margin-top: auto;
-    margin-bottom: auto;
+	display: block;
+	position: absolute;
+    left: 45%;
+    top: 45%;
+	overflow: hidden;
  }
 
 #end4 {
-  	margin-left: 10%;
- }
+	display: block;
+	position: absolute;
+    left: 10%;
+    top: 70%;
+	overflow: hidden;
+}
 
 #end5 {
-  	margin-left: 5%;
- }
+	display: block;
+	position: absolute;
+    right: 5%;
+    bottom: 5%;
+	overflow: hidden;
+}
+
+#end6 {
+	display: block;
+	position: absolute;
+    right: 10%;
+    top: 25%;
+	width: 400px;
+	overflow: hidden;
+}
+
 
