@@ -2,6 +2,10 @@ html {
   	font-family: 'Roboto Mono', monospace;
 }
 
+body {
+	margin: 20px;
+}
+
 a:link {
 	color: black;
 }
@@ -12,10 +16,11 @@ a:visited {
 @media (max-width: 800px) {
 
 body {
+	margin: 10px;
 	font-size: 50%;
 
 }
-div {
+/*div {
 }
 .table {
 	width: 100%;
@@ -48,13 +53,28 @@ div {
 #end5{
     left: 5% !important;
 	top: 73% !important;
-}
+}*/
 
 }
 
+th {
+	background: black;
+	color: white;
+	border: 1px solid black;
+    padding: 5px;
+}
+td {
+	border: 1px solid black;
+    padding: 5px;
+}
 
+.headerlink {
+	color: white !important;
+	text-decoration: none !important;
+	text-align: center;
+}
 
-.div {
+/*.div {
 	width: fit-content;
     border: 1.5px solid black;
     padding: 10px;
@@ -136,3 +156,4 @@ div {
 }
 
 
+*/
