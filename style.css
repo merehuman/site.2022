@@ -91,14 +91,33 @@ a:visited {
 
 @media (max-width: 800px) {
 
-body {
-	margin: 0px;
-	font-size: 100%;
-}
+    body {
+	margin: 5px;
+	font-size: 50%;
+    }
 
-.ascii {
-	margin-left: 0px;
-}
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+    .ascii {
+        flex: 1;
+        box-sizing: border-box;
+        padding: 10px;
+        /*    border: 1px solid black;
+*/
+    }
+
+    .info, .storage {
+        flex: 0.5;
+        box-sizing: border-box;
+        padding: 10px;
+        /*    border: 1px solid black;
+*/
+    }   
 
 }
 
