@@ -29,25 +29,32 @@ body {
 
 .main {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    //text-align: center;
+    min-height: 100vh;
+    //margin: 10px;
 }
 
 .ascii {
-    flex: 1;
-    box-sizing: border-box;
-    padding: 10px;
-/*    border: 1px solid black;
-*/}
-
-.info, .storage {
     flex: 0.5;
-    box-sizing: border-box;
+    width: 100%;
+    max-width: 90%;
     padding: 10px;
-/*    border: 1px solid black;
+    /*    border: 1px solid black;
 */
 }
+
+.info, .storage, .home {
+    flex: 0.5;
+    width: 100%;
+    max-width: 90%;
+    padding: 10px;
+    /*    border: 1px solid black;
+*/
+}
+
+
 
 a {
 	color: black;
@@ -92,29 +99,28 @@ a:visited {
 @media (max-width: 800px) {
 
     body {
-	margin: 10px;
 	font-size: 50%;
     }
 
     .main {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        margin: 10px;
+        align-items: center;
     }
 
     .ascii {
-        flex: 1;
-        box-sizing: border-box;
-        padding: 10px;
+        flex: none;
+        width: 100%;
+        max-width: 90%;
+
         /*    border: 1px solid black;
 */
     }
 
     .info, .storage {
-        flex: 0.5;
-        box-sizing: border-box;
-        padding: 10px;
+        flex: none;
+        width: 100%;
+        max-width: 90%;
         /*    border: 1px solid black;
 */
     }   
