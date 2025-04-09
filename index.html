@@ -14,9 +14,9 @@
 
 <body>
 	<div class="main">
-		<pre class="ascii">
+        <pre class="ascii">
                                                      \_/
-                                                   --(_)--
+                                                   --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/">!</a>)--
                     .                                / \
                     :.   .
                      :.  .   . _____           \
@@ -30,61 +30,25 @@
        _____       \\  /   //||         ||\\   |
   /   /_____\   ()=|| /   // ||         || \\=====\
  /|\ /_______\     ||/   //  ||         ||  \\-----\           ()  ()
-//|\\|<a id="storage" href="storage.html">storage</a>|     |/   //====|=========|====\\=====\          ||  ||=()
+//|\\|<a class="blinking-link" id="storage" href="storage.html">storage</a>|     |/   //====|=========|====\\=====\          ||  ||=()
   |  |_______|     /   //    ||   ___   ||    \\vvvv||   ()      \\//
       ^^  \_\     /   //     ||  |   |  ||     \\vvv||    \\  ()  //=()
    ____    \_\   |\  //      ||  |  .|  ||      \\vv||  ()=|| || // 
-  |<a id="info" href="info.html">info</a>|    \_\  \ \//=======||__|___|__||=======\\v||      \\||//
-     ||      \_\ ^\ \|_|_|_|_|_|_________|_|_|_|_|_|_\|^^     ||   ()
-  ^^^||^^^^^^^^^^^^\ |__________\|______|_____________|^^^^^^^||^^^||^^^  
- ^^^^^^^^^()^^^^^^^^\|___________\|______|____________|^^^^^^^||^^^^^^^^^ 
-^^^^^^^^^^||()^^^^^^^^^^^^^^^^^^^^\|______|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^()^^^^^^^^^^^^^^
+  |<a class="blinking-link" id="info" href="info.html">info</a>|    \_\  \ \//=======||__|___|__||=======\\v||      \\||//
+     ||      \_\ ^\ \|_|_|_|_|_|_\<a class="blinking-link" id="enter" href="enter.html">enter</a>\_|_|_|_|_|_|_\|^^     ||   ()           ()
+  ^^^||^^^^^^^^^^^^\ |__________\|______|_____________|^^^^^^^||^^^||^^^^^    ()<a class="blinking-link" id="enter" href="404.html">@</a>()
+ ^^^^^^^^^()^^^^^^^^\|___________\|______|____________|^^^^^^^||^^^^^^^^^     ()()  ^
+^^^^^^^^^^||()^^^^^^^^^^^^^^^^^^^^\|______|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    /
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   \|/
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^()^^^^^^^^^^^^^^   \\|// ^^^^
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-             ^^^^^^^^^^^^^^^^^^^^^^^^^/      /^^^^^^^^^^^^^^^^^^^^^^^   ^
+             ^^^^^^^^^^^^^^^^^^^^^^^^^/      /^^^^^^^^^^^^^^^^^^^^^^^   ^ ^^^
                    ^^^^    ^^^^     ^/      /              ^^
 
-		<span class="marquee-text">   welcome home...</span>
+		
+<span class="marquee-text">   welcome home...</span>
 		</pre>
     </div>
-
-
-	<!------------------------------------------------------------------------
-	JAVA SCRIPT
-	------------------------------------------------------------------------>
-	<script>
-    // Get references to elements
-    const showInfo = document.getElementById("showInfo");
-    const popUpInfo = document.getElementById("popUpInfo");
-    const showStorage = document.getElementById("showStorage");
-    const popUpStorage = document.getElementById("popUpStorage");
-
-    const hideLink = document.getElementById("hideContent");
-
-    // Show the div when the link is clicked
-    showInfo.addEventListener("click", function() {
-      popUpInfo.classList.remove("hidden");
-      popUpStorage.classList.add("hidden");
-      //showLink.style.display = "none"; // Hide the "show" link
-      hideLink.style.display = "inline"; // Show the "hide" link
-    });
-
-    showStorage.addEventListener("click", function() {
-      popUpStorage.classList.remove("hidden");
-      popUpInfo.classList.add("hidden");
-      //showLink.style.display = "none"; // Hide the "show" link
-      hideLink.style.display = "inline"; // Show the "hide" link
-    });
-
-    // Hide the div when the hide link is clicked
-    hideLink.addEventListener("click", function() {
-      popUpInfo.classList.add("hidden");
-      //hideLink.style.display = "none"; // Hide the "hide" link
-      showInfo.style.display = "inline"; // Show the "show" link
-    });
-	</script>
-
 </body>
 
 
