@@ -114,8 +114,7 @@ a:visited {
     .ascii {
         flex: none;
         width: 100%;
-        max-width: 90%;
-
+        max-width: 100%;
         /*    border: 1px solid black;
 */
     }
@@ -126,7 +125,11 @@ a:visited {
         max-width: 90%;
         /*    border: 1px solid black;
 */
-    }   
+    }
+
+    iframe {
+        width: 100%;
+    }
 
 }
 
