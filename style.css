@@ -8,15 +8,18 @@ html {
 }
 
 body {
-    margin: 10px;
-    padding: 10px;
+
     background-color: white;
 }
 
 .marquee-text {
     position: relative;
-    padding: 10px;
 
+}
+
+.menu {
+	position: relative;
+	float: right;
 }
 
 .main {
@@ -28,22 +31,46 @@ body {
 /*    margin: 10px;
 */}
 
+
 .ascii {
     flex: 0.5;
     width: 100%;
-    max-width: 90%;
-    padding: 10px;
     /*    border: 1px solid black;
 */
 }
 
-.info, .storage, .home, .enter {
-    flex: 0.5;
-    width: 100%;
-    max-width: 90%;
+.popup {
+    position: fixed;
+    top: 10%;
+    background-color: white;
+    border: 2px dashed black;
     padding: 10px;
-    /*    border: 1px solid black;
-*/
+    z-index: 1000;
+    width: 100px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.blinking-link {
+    text-decoration: underline;
+    text-decoration-color: black;
+    animation: blink 2s infinite;
+}
+
+iframe {
+    position: absolute;
+    top: 9%;
+    width: 630px;
+    height: 340px;
+    border: none;
 }
 
 
@@ -88,11 +115,6 @@ a:visited {
     display: none;
 }
 
-.blinking-link {
-    text-decoration: underline;
-    text-decoration-color: black;
-    animation: blink 2s infinite;
-}
 
 
 
@@ -102,33 +124,38 @@ a:visited {
 @media (max-width: 800px) {
 
     body {
-	    font-size: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        font-size: 50%;
     }
 
     .main {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 0px;
+/*        min-height: 100vh;
+*/    }
+
+    .ascii-wrapper {
+        position: relative;
+        align-items: center;
+        white-space: pre;
     }
 
     .ascii {
-        flex: none;
-        width: 100%;
-        max-width: 100%;
-        /*    border: 1px solid black;
-*/
-    }
-
-    .info, .storage {
-        flex: none;
-        width: 100%;
-        max-width: 90%;
-        /*    border: 1px solid black;
-*/
+        margin: 0px;
     }
 
     iframe {
-        width: 100%;
+        position: absolute;
+        top: 15%;
+        width: 75%;
+        height: 18%;
+        border: none;
     }
 
 }

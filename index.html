@@ -15,11 +15,13 @@
 <body>
 	<div class="main">
         <pre class="ascii">
+
+<span class="marquee-text">welcome home...</span>
                                                      \_/
                                                    --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/">!</a>)--
                     .                                / \
                     :.   .
-                     :.  .   . _____           \
+                     :.  .   . _____           \     
                       '::   .:/   /_\         /|\
                         ':. :/   // \\       //|\\   
                           :./   //   \\     ///|\\\
@@ -45,10 +47,51 @@
              ^^^^^^^^^^^^^^^^^^^^^^^^^/      /^^^^^^^^^^^^^^^^^^^^^^^   ^ ^^^
                    ^^^^    ^^^^     ^/      /              ^^
 
-		
-<span class="marquee-text">   welcome home...</span>
+<div id="popUpMenu" class="popup hidden">
+<span class="close-button" id="hideContent">&times;</span>
+<a class="blinking-link" id="info" href="info.html">info</a>
+<a class="blinking-link" href="https://docs.google.com/document/d/1BfO-WC4rHDQVzDeM3lUc8UpPWYbTF5OtAjGh4M7GQTg/edit?usp=sharing">resume</a>
+<a class="blinking-link" id="home" href="desktop.html">projects</a>
+
+</div>		
+<span class="menu"><a id="showMenu">menu</a> (less fun)</span> 
+
+
+
+
+
 		</pre>
     </div>
+
+
+
+    <!------------------------------------------------------------------------
+    JAVA SCRIPT
+    ------------------------------------------------------------------------>
+<script>
+    // Get references to elements
+    const showMenu = document.getElementById("showMenu");
+    const popUpMenu = document.getElementById("popUpMenu");
+
+    const hideContent = document.getElementById("hideContent");
+
+    // Show the div when the link is clicked
+    showMenu.addEventListener("click", function() {
+      popUpMenu.classList.remove("hidden");
+      //showLink.style.display = "none"; // Hide the "show" link
+      hideContent.style.display = "inline"; // Show the "hide" link
+    });
+
+    // Hide the div when the hide link is clicked
+    hideContent.addEventListener("click", function() {
+      popUpMenu.classList.add("hidden");
+      //hideLink.style.display = "none"; // Hide the "hide" link
+      showMenu.style.display = "inline"; // Show the "show" link
+    });
+</script>
+
+
+
 </body>
 
 
