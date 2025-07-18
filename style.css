@@ -29,28 +29,20 @@ html, body {
 
 .iframe-container {
     position: absolute;
-    top: 5px;
+    top: 35px;
     left: 15px;
     width: 640px;
-    height: 355px;
+    height: 345px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-iframe {
-    position: absolute;
-    top: 9%;
-    width: 630px;
-    height: 340px;
-    border: none;
-}
-
 .iframe-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: black;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: black;
 }
 
 .marquee-text {
@@ -88,9 +80,6 @@ iframe {
     text-decoration-color: black;
     animation: blink 2s infinite;
 }
-
-
-
 
 
 /*//----------------------------------------------
@@ -141,31 +130,15 @@ a:visited {
 //----------------------------------------------*/
 @media (max-width: 800px) {
 
-    body {
-        justify-content: center;
-        width: 100vh;
-        margin: 10px;
-    }
-
-    .main {
-        flex-direction: column;
-        margin: 0px;
-    }
-
-    .ascii-wrapper {
-        position: relative;
-        white-space: pre;
-    }
-
     .ascii {
-        margin: 0px;
+        width: 95vw;
+        font-size: 3vw;
     }
-
-    iframe {
-        position: absolute;
-        top: 6%;
-        left: 8%;
-        border: none;
+    .iframe-container {
+        width: 125vw;
+        height: 68vw;
+        left: 4vw;
+        top: 8vw;
     }
 
 }
