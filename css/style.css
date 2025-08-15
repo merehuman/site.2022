@@ -1,0 +1,380 @@
+/* ==========================================================================
+   Font Face Declarations
+   ========================================================================== */
+@font-face {
+    font-family: 'Tiltortion';
+    src: url('../fonts/Tiltortion.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================================================
+   CSS Variables (Custom Properties)
+   ========================================================================== */
+:root {
+    /* Colors */
+    --color-primary: #000000;
+    --color-secondary: #ff0000;
+    --color-accent: #0000ff;
+    --color-background: #ffffff;
+    --color-text: #000000;
+    
+    /* Typography */
+    --font-family-primary: 'Roboto Mono', monospace;
+    --font-family-secondary: 'Tiltortion', 'Courier New', monospace;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --font-size-large: 18px;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index layers */
+    --z-index-menu: 1000;
+    --z-index-overlay: 999;
+}
+
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-family: var(--font-family-primary);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+}
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+.main {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    gap: 0;
+    align-items: flex-start;
+}
+
+.content-layout {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    gap: 0;
+    align-items: flex-start;
+    position: relative;
+    min-height: 100vh;
+}
+
+.ascii-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    z-index: 10;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 auto;
+    width: auto;
+    height: fit-content;
+    padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+    margin-right: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.ascii {
+    margin: 0;
+    padding: var(--spacing-md);
+    background: var(--color-background);
+    height: fit-content;
+    white-space: pre;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.2;
+    overflow: visible;
+}
+
+
+.menu-content {
+    background: var(--color-background);
+    padding: var(--spacing-md);
+    margin: 0;
+    white-space: pre;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.2;
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+}
+
+.menu-content a {
+    display: inline;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Header Container
+   ========================================================================== */
+.header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--spacing-md);
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   Name Heading Styles
+   ========================================================================== */
+.header-container h1 {
+    font-family: 'Tiltortion', var(--font-family-secondary);
+    font-size: 3rem;
+    font-weight: normal;
+    color: var(--color-primary);
+    line-height: 0.9;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+/* ==========================================================================
+   Links and Navigation
+   ========================================================================== */
+a {
+    color: var(--color-text);
+    font-style: italic;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-secondary);
+    outline: none;
+}
+
+a:visited {
+    color: var(--color-text);
+}
+
+.blinking-link {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    animation: blink 2s infinite;
+    transition: color var(--transition-fast);
+}
+
+.blinking-link:hover,
+.blinking-link:focus {
+    color: var(--color-secondary);
+    animation-play-state: paused;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes blink {
+    0%, 100% {
+        color: var(--color-primary);
+    }
+    50% {
+        color: var(--color-accent);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes smoke {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 800px) {
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    .page-layout {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .content-layout {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        position: relative;
+    }
+    
+    .ascii-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        margin-top: 0;
+    }
+    
+    .menu-container {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        padding: var(--spacing-sm);
+        margin-right: 0;
+        margin-bottom: 0;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .header-container h1 {
+        font-size: 2.2rem;
+        line-height: 0.85;
+    }
+    
+    .ascii {
+        width: 95vw;
+        font-size: 3vw;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 12px;
+    }
+    
+    .ascii {
+        font-size: 2.5vw;
+    }
+    
+    .menu-container h1 {
+        font-size: 1.8rem;
+        line-height: 0.8;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #000000;
+        --color-secondary: #ff0000;
+        --color-accent: #0000ff;
+    }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .blinking-link {
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+    .menu,
+    .menu-container {
+        display: none !important;
+    }
+    
+    .ascii {
+        font-size: 12pt;
+        color: black;
+    }
+}
+

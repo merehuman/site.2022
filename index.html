@@ -1,95 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>jessa gillespie - home</title>
-	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-	</style>
-	<script src="leader-line.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jessa gillespie - mere human studio">
+    <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
+    <meta name="author" content="Jessa Gillespie">
+    
+    <title>jessa gillespie - home</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-
 <body>
-	<div class="main">
-        <pre class="ascii">
+        <main class="main" role="main">
+        <div class="page-layout">
+            <div class="header-container">
+                <h1>jessa gillespie</h1>
+            </div>
+            
+            <div class="content-layout">
+                <div class="menu-container">
+                    <a class="blinking-link">welcome home...</a>
+                    <a class="blinking-link" id="info" href="pages/info.html">info</a>
+                    <a class="blinking-link" href="https://docs.google.com/document/d/1BfO-WC4rHDQVzDeM3lUc8UpPWYbTF5OtAjGh4M7GQTg/edit?usp=sharing" target="_blank" rel="noopener noreferrer">resume</a>
+                    <a class="blinking-link" id="home" href="pages/desktop.html">projects</a>
+                </div>
 
+                <div class="ascii-container">
+                    <pre class="ascii" aria-label="ASCII art welcome screen">
+                        <span id="smoke1" class="smoke">.</span>                                          \_/                       
+                        ..                                       --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/" target="_blank" rel="noopener noreferrer">!</a>)--                     
+                          <span id="smoke2" class="smoke">.</span>,                                       / \                       
+                            :.   <span id="smoke3" class="smoke">.</span>                                                           
+                             :.  .   . _____           \                                     
+                              '::   .<span id="smoke5" class="smoke">.</span>/   /_\         /|\                                    
+             \                  ':. :/   // \\       //|\\                                   
+            /|\                   :<span id="smoke4" class="smoke">.</span>/   //   \\     ///|\\\                                  
+           //|\\                   |_| //     \\     //|\\                                   
+           //|\              ()   /|_|//       \\   ///|\\\                                  
+            /|\          ()  ||  /   //         \\     |                                     
+           //|\\          \\//  /   //|=========|\\    |                                     
+             | _____       \\  /   //||         ||\\   |                                     
+        /    |/_____\   ()=|| /   // ||         || \\=====\                                  
+       /|\   /_______\     ||/   //  ||         ||  \\-----\           ()  ()                
+      //|\\  |<a class="blinking-link" id="storage" href="pages/storage.html">storage</a>|     |/   //====|=========|====\\=====\          ||  ||=()             
+        |    |_______|     /   //    ||   ___   ||    \\vvvv||   ()      \\//                
+       ^^^^   ^^  \_\     /   //     ||  |   |  ||     \\vvv||    \\  ()  //=()              
+     ^^^^^^  ____  \_\   |\  //      ||  |  .|  ||      \\vv||  ()=|| || //                  
+            |<a class="blinking-link" id="info" href="pages/info.html">info</a>|  \_\  \ \//=======||__|___|__||=======\\v||      \\||//                   
+              ||     \_\ ^\ \|_|_|_|_|_|_\<a class="blinking-link" id="enter" href="pages/enter.html">enter</a>\_|_|_|_|_|_|_\|^^     ||   ()           ()   
+       ^   ^^^||^^^^^^^^^^^\ |__________\|______|_____________|^^^^^^^||^^^||^^^^^    ()<a class="blinking-link" id="enter" href="pages/404.html">@</a>()  
+          ^^^^^^^^()^^^^^^^^\|___________\|______|____________|^^^^^^^||^^^^^^^^^     ()()   
+^^^^ ^^ ^^^^^^^^^^||()^^^^^^^^^^^^^^^^^^^^\|______|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    /     
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   \|/    
+    ()        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^()^^^^^^^^^^^^^^^^^\\|// ^ 
+    ^^^        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^^^^^^^                    
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^/      /^^^^^^^^^^^^^^^^^^^^^^^   ^ ^^^        
+                           ^^^^    ^^^^     ^/      /              ^^                        
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<span class="marquee-text">welcome home...</span><span class="menu"><a id="showMenu">menu</a></span>
-<div id="popUpMenu" class="popup hidden">
-.__________.
-|        <span class="close-button" id="hideContent">&times;</span> |
-| <a class="blinking-link" id="info" href="info.html">info</a>     |
-| <a class="blinking-link" href="https://docs.google.com/document/d/1BfO-WC4rHDQVzDeM3lUc8UpPWYbTF5OtAjGh4M7GQTg/edit?usp=sharing">resume</a>   |
-| <a class="blinking-link" id="home" href="desktop.html">projects</a> |
-.__________.
-</div>
-                        .                                          \_/
-                        ..                                       --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/">!</a>)--
-                          . .                                      / \
-                            :.   .
-                             :.  .   . _____           \     
-                              '::   .:/   /_\         /|\
-                                ':. :/   // \\       //|\\   
-                                  :./   //   \\     ///|\\\
-                                   |_| //     \\     //|\\
-                             ()   /|_|//       \\   ///|\\\
-                         ()  ||  /   //         \\     |
-                          \\//  /   //|=========|\\    |
-               _____       \\  /   //||         ||\\   |
-        /     /_____\   ()=|| /   // ||         || \\=====\
-       /|\   /_______\     ||/   //  ||         ||  \\-----\           ()  ()
-      //|\\  |<a class="blinking-link" id="storage" href="storage.html">storage</a>|     |/   //====|=========|====\\=====\          ||  ||=()
-        |    |_______|     /   //    ||   ___   ||    \\vvvv||   ()      \\//
-              ^^  \_\     /   //     ||  |   |  ||     \\vvv||    \\  ()  //=()
-           ____    \_\   |\  //      ||  |  .|  ||      \\vv||  ()=|| || // 
-          |<a class="blinking-link" id="info" href="info.html">info</a>|    \_\  \ \//=======||__|___|__||=======\\v||      \\||//
-             ||      \_\ ^\ \|_|_|_|_|_|_\<a class="blinking-link" id="enter" href="enter.html">enter</a>\_|_|_|_|_|_|_\|^^     ||   ()           ()
-      ^   ^^^||^^^^^^^^^^^^\ |__________\|______|_____________|^^^^^^^||^^^||^^^^^    ()<a class="blinking-link" id="enter" href="404.html">@</a>()
-         ^^^^^^^^^()^^^^^^^^\|___________\|______|____________|^^^^^^^||^^^^^^^^^     ()()  ^
-     ^^ ^^^^^^^^^^||()^^^^^^^^^^^^^^^^^^^^\|______|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    /
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ \      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   \|/
-()           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^()^^^^^^^^^^^^^^^^^\\|// ^^^^
-     ^^^      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\      \^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^/      /^^^^^^^^^^^^^^^^^^^^^^^   ^ ^^^
-                           ^^^^    ^^^^     ^/      /              ^^
-   
-   
-		</pre>
-    </div>
-
-
-
-    <!------------------------------------------------------------------------
-    JAVA SCRIPT
-    ------------------------------------------------------------------------>
-<script>
-    // Get references to elements
-    const showMenu = document.getElementById("showMenu");
-    const popUpMenu = document.getElementById("popUpMenu");
-
-    const hideContent = document.getElementById("hideContent");
-
-    // Show the div when the link is clicked
-    showMenu.addEventListener("click", function() {
-      popUpMenu.classList.remove("hidden");
-      //showLink.style.display = "none"; // Hide the "show" link
-      hideContent.style.display = "inline"; // Show the "hide" link
-    });
-
-    // Hide the div when the hide link is clicked
-    hideContent.addEventListener("click", function() {
-      popUpMenu.classList.add("hidden");
-      //hideLink.style.display = "none"; // Hide the "hide" link
-      showMenu.style.display = "inline"; // Show the "show" link
-    });
-</script>
-
-
-
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
-
-
 </html>

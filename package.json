@@ -1,0 +1,43 @@
+{
+  "name": "jessa-gillespie-portfolio",
+  "version": "1.0.0",
+  "description": "Jessa Gillespie's creative developer portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -c-1",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'No build process needed for static site'",
+    "lint": "npx eslint js/*.js",
+    "format": "npx prettier --write '**/*.{html,css,js}'",
+    "validate": "npx html-validate *.html",
+    "test": "echo 'No tests specified'",
+    "deploy": "echo 'Deploy to your hosting service'"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "creative",
+    "ascii-art",
+    "web-development"
+  ],
+  "author": "Jessa Gillespie",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0",
+    "html-validate": "^7.0.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/merehuman/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/merehuman/portfolio/issues"
+  },
+  "homepage": "https://merehuman.live"
+} 
