@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jessa gillespie - stephanie dinkins studio">
+    <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
+    <meta name="author" content="Jessa Gillespie">
+    
+    <title>jessa gillespie - stephanie dinkins studio</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="../css/style.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <main class="main" role="main">
+        <div class="page-layout">
+            <div class="header-container">
+                <h1>jessa gillespie</h1>
+            </div>
+            
+            <div class="content-layout">
+                <div class="menu-container">
+                    <a class="blinking-link" id="home" href="../index.html">go home...</a>
+                    <a class="blinking-link" id="info" href="info.html">info</a>
+                    <a class="blinking-link" href="cv.html">resume</a>
+                    <a class="blinking-link" id="home" href="desktop.html">projects</a>
+                    <a class="blinking-link" href="https://github.com/merehuman" target="_blank" rel="noopener noreferrer">github</a>
+                </div>
+
+                <div class="ascii-container">
+                    <pre class="ascii" aria-label="ASCII art stephanie dinkins studio screen">
+        ._______________________________________________________________________________.
+        |._____________________________________________________________________________.|
+        ||                                                                             ||
+        ||                                                                             ||
+        ||   <b>stephanie dinkins studio</b>                                               ||
+                                                    ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        ||                                                                             ||
+        |._____________________________________________________________________________.|
+        ._______________________________________________________________________________.
+                                        |          |
+                                        |          |
+                                     ___|..........|___
+                                    |__________________|
+                    </pre>
+                    <div class="slideshow-container" style="position: absolute; top: 60%; left: 20px; width: calc(100% - 40px); max-width: 600px; height: 120px; z-index: 10;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script>
+        // Slideshow functionality
+        const slideshowImages = [
+            '../images/stephaniedinkins1.png',
+            '../images/stephaniedinkins2.png'
+        ];
+        
+        let currentImageIndex = 0;
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        
+        function updateSlideshow() {
+            if (slideshowContainer) {
+                slideshowContainer.innerHTML = `<img src="${slideshowImages[currentImageIndex]}" alt="Project image ${currentImageIndex + 1}" style="width: 100%; height: 100%; object-fit: contain;">`;
+            }
+            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+        }
+        
+        // Update slideshow every 3 seconds
+        setInterval(updateSlideshow, 3000);
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', updateSlideshow);
+    </script>
+</body>
+</html>
