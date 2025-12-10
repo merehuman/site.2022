@@ -21,6 +21,13 @@ class AsciiVideoWrapper {
         const iframes = document.querySelectorAll('iframe[src*="youtube.com"], iframe[src*="youtu.be"]');
         
         iframes.forEach(iframe => {
+            // Skip iframes that are inside youtube-video-container (they don't need ASCII borders)
+            const container = iframe.closest('.youtube-video-container');
+            if (container && (container.classList.contains('youtube-video-container') || container.dataset.skipAsciiWrapper === 'true')) {
+                return;
+            }
+            
+            // Skip iframes that are already wrapped
             if (!iframe.parentElement.classList.contains('ascii-video-wrapper')) {
                 this.createAsciiWrapper(iframe);
             }
