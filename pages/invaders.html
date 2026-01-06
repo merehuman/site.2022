@@ -40,16 +40,20 @@
                 <div class="ascii-container">
                     <b>space invaders clone!</b>
                     
-                    <div class="youtube-video-container" data-skip-ascii-wrapper="true">
-                        <iframe src="https://www.youtube.com/embed/bl0PmXG-MsA" title="Space Invaders Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    
-                    <div>i cloned the game space invaders! it is still in progress, but playable.</div>
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <iframe src="https://www.youtube.com/embed/bl0PmXG-MsA?autoplay=1&mute=1" title="Space Invaders Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        
+                        <div class="video-description">
+                            <div>i cloned the game space invaders! it is still in progress, but playable.</div>
 
-                    <div>the project was built using C# in the AZUL framework, which was developed by 
-                        <a href="https://www.cdm.depaul.edu/Faculty-and-Staff/Pages/faculty-info.aspx?fid=562">ed keenan</a>, 
-                        my graduate advisor. 
-                        the cloned game was built with an emphasis on real-time software architecture, using 15 different design patterns such as observer, strategy, and visitor. it is object-oriented, orthogonal and data-driven.</div>
+                            <div>the project was built using C# in the AZUL framework, which was developed by 
+                                <a href="https://www.cdm.depaul.edu/Faculty-and-Staff/Pages/faculty-info.aspx?fid=562">ed keenan</a>, 
+                                my graduate advisor. 
+                                the cloned game was built with an emphasis on real-time software architecture, using 15 different design patterns such as observer, strategy, and visitor. it is object-oriented, orthogonal and data-driven.</div>
+                        </div>
+                    </div>
 
                     <div>here is a link to the <a class="blinking-link" href="https://github.com/merehuman/spaceInvaders">github repo</a>.</div>
 
@@ -63,5 +67,21 @@
     <script src="../js/utils.js"></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/ascii-video-wrapper.js"></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>

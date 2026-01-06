@@ -93,7 +93,7 @@
                                         </tr>
                                         <tr>
                                             <td class="date">2019-present</td>
-                                            <td class="description">c# programming, 3d graphics, animation for stephanie dinkins studio</td>
+                                            <td class="description">c# programming, 3d graphics, animation for <a class="blinking-link" href="https://www.stephaniedinkins.com/" target="_blank" rel="noopener noreferrer">stephanie dinkins</a> studio</td>
                                             <td class="location"></td>
                                         </tr>
                                         <tr>
@@ -113,7 +113,7 @@
                                         </tr>
                                         <tr>
                                             <td class="date">2017-2019</td>
-                                            <td class="description">game development & 3d graphics on "the lost garden" with scott smallwood and nicolás arnáez</td>
+                                            <td class="description">game development & 3d graphics on "<a class="blinking-link" href="https://audiogameslab.itch.io/the-lost-garden" target="_blank" rel="noopener noreferrer">the lost garden</a>" with scott smallwood and nicolás arnáez</td>
                                             <td class="location"></td>
                                         </tr>
                                         <tr>
@@ -254,5 +254,21 @@
     <script src="../js/config.js"></script>
     <script src="../js/utils.js"></script>
     <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>

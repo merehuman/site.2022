@@ -11,7 +11,8 @@
     "format": "npx prettier --write '**/*.{html,css,js}'",
     "validate": "npx html-validate *.html",
     "test": "echo 'No tests specified'",
-    "deploy": "echo 'Deploy to your hosting service'"
+    "deploy": "echo 'Deploy to your hosting service'",
+    "ascii-to-image": "node js/ascii-to-image.js"
   },
   "keywords": [
     "portfolio",
@@ -23,6 +24,7 @@
   "author": "Jessa Gillespie",
   "license": "MIT",
   "devDependencies": {
+    "canvas": "^2.11.2",
     "eslint": "^8.0.0",
     "prettier": "^2.8.0",
     "html-validate": "^7.0.0",

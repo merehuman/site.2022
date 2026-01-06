@@ -7,7 +7,7 @@
     <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
     <meta name="author" content="Jessa Gillespie">
     
-    <title>jessa gillespie - game engine</title>
+    <title>jessa gillespie - graphics engine</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
@@ -40,18 +40,20 @@
                 <div class="ascii-container">
                     <b>real-time graphics engine!</b>
                     
-                    <div class="youtube-video-container" data-skip-ascii-wrapper="true">
-                        <iframe src="https://www.youtube.com/embed/-Ep1ZdrJYug" title="graphics engine demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    
-                    <div>a comprehensive real-time graphics engine built with C++ and DirectX11, featuring a modular architecture with custom libraries.
-                        the engine supports skinned and rigid body animations, sprites, fonts, camera systems, and GPU-accelerated lighting.
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <iframe src="https://www.youtube.com/embed/-Ep1ZdrJYug?autoplay=1&mute=1" title="graphics engine demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        
+                        <div class="video-description">a comprehensive real-time graphics engine built with C++ and DirectX11, featuring a modular architecture with custom libraries.
+                            the engine supports skinned and rigid body animations, sprites, fonts, camera systems, and GPU-accelerated lighting.
+                        </div>
                     </div>
 
                     <div>my libraries:</div>
 
                     <ul>
-                        <li>SIMD-optimized math library (Vectors, Matrices, and Quaternions)</li>
+                        <li>SIMD-optimized math library (vectors, matrices, and quaternions)</li>
                         <li>multi-heap memory management with aligned allocations & cross-heap tracking</li>
                         <li>parent-child-sibling tree structure for scene management</li>
                         <li>file I/O and resource management</li>
@@ -70,5 +72,22 @@
     <script src="../js/utils.js"></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/ascii-video-wrapper.js"></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        // Demonstrating new settings: wavy, single-pixel line border with rounded corners
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,                    // Size of each pixel
+                thickness: 1,                    // Single pixel line (wavy effect)
+                randomness: 0.5,                 // High randomness for waviness
+                clusterRandomness: true,         // Enable clustering for organic wavy patterns
+                jitterAmount: 0.25,              // Additional jitter for variation
+                shapeVariation: 0.15,            // Slight pixel size variation for texture
+                cornerRadius: 20                 // Rounded corners (in pixels)
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>

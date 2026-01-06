@@ -10,11 +10,14 @@
     <title>jessa gillespie - home</title>
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
     <link rel="preload" href="css/style.css" as="style">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Favicon -->
@@ -39,14 +42,14 @@
 
                 <div class="ascii-container">
                     <pre class="ascii" aria-label="ASCII art welcome screen">
-                        <span id="smoke1" class="smoke">.</span>                                          \_/                       
-                        ..                                       --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/" target="_blank" rel="noopener noreferrer">!</a>)--                     
-                          <span id="smoke2" class="smoke">.</span>,                                       / \                       
-                            :.   <span id="smoke3" class="smoke">.</span>                                                           
-                             :.  .   . _____           \                                     
-                              '::   .<span id="smoke5" class="smoke">.</span>/   /_\         /|\                                    
-             \                  ':. :/   // \\       //|\\                                   
-            /|\                   :<span id="smoke4" class="smoke">.</span>/   //   \\     ///|\\\                                  
+                                                                  \_/                       
+                                                                --(<a class="blinking-link" href="https://www.websitecarbon.com/website/merehuman-live/" target="_blank" rel="noopener noreferrer">!</a>)--                     
+                                                                  / \                       
+                                                                                            
+                                       _____           \                                     
+                                      /   /_\         /|\                                    
+             \                       /   // \\       //|\\                                   
+            /|\                    <span id="smoke" class="smoke">.</span>/   //   \\     ///|\\\                                  
            //|\\                   |_| //     \\     //|\\                                   
            //|\              ()   /|_|//       \\   ///|\\\                                  
             /|\          ()  ||  /   //         \\     |                                     
@@ -78,5 +81,22 @@
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/main.js" defer></script>
+    <script src="js/paint-border.js"></script>
+    <script src="js/smoke-animation.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>

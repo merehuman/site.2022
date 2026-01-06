@@ -14,11 +14,12 @@
    ========================================================================== */
 :root {
     /* Colors */
-    --color-primary: #000000;
+    --color-primary: #ff0000;
     --color-secondary: #ff0000;
-    --color-accent: #0000ff;
-    --color-background: #ffffff;
-    --color-text: #000000;
+    --color-accent: #ff0000;
+    --color-background: #2e0901;
+    --color-text: #ff0000;
+    --paint-border-color: #ff0000;  /* Paint border color - change this to update all borders */
     
     /* Typography */
     --font-family-primary: 'Roboto Mono', monospace;
@@ -65,7 +66,8 @@ body {
     padding: 0;
     font-family: var(--font-family-primary);
     color: var(--color-text);
-    /* background-image: url('../images/sky2.jpg');
+    background-color: var(--color-background);
+    /* background-image: url('../images/monsters4.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,12 +78,16 @@ body {
    Layout Components
    ========================================================================== */
 .main {
-    min-height: 100vh;
-    width: 100vw;
+    min-height: calc(100vh - 2 * var(--spacing-md));
+    width: calc(100vw - 2 * var(--spacing-md));
+    max-width: calc(100vw - 2 * var(--spacing-md));
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     overflow: auto;
+    margin: var(--spacing-md);
+    padding: var(--spacing-md);
+    box-sizing: border-box;
 }
 
 .page-layout {
@@ -101,7 +107,7 @@ body {
     gap: 0;
     align-items: flex-start;
     position: relative;
-    min-height: 100vh;
+    min-width: 0;
 }
 
 .ascii-container {
@@ -110,11 +116,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
-    padding-bottom: var(--spacing-xl);
-    z-index: 10;
+    margin: 0 var(--spacing-md);
+    padding: var(--spacing-md);
 }
 
 .slideshow-container {
@@ -171,16 +174,34 @@ body {
     margin-bottom: var(--spacing-md);
 }
 
+.video-description-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    margin: var(--spacing-md) 0;
+    width: 100%;
+}
+
 .youtube-video-container {
     position: relative;
-    min-width: 450px;
+    width: 50%;
+    max-width: 100%;
+    min-width: 250px;
     height: 300px;
     display: block;
-    margin: var(--spacing-md) 0;
+    margin: 0;
     border: none;
     outline: none;
     box-shadow: none;
-    overflow: visible;
+    overflow: hidden;
+    flex-shrink: 1;
+}
+
+.video-description {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
 }
 
 .youtube-video-container iframe {
@@ -258,32 +279,32 @@ body {
    Links and Navigation
    ========================================================================== */
 a {
-    color: var(--color-text);
+    color: var(--color-accent);
     font-style: italic;
-    text-decoration: underline;
-    transition: color var(--transition-fast);
+    text-decoration: underline var(--color-accent);
+    /* transition: color var(--transition-fast); */
 }
 
 a:hover,
 a:focus {
-    color: var(--color-secondary);
+    color: var(--color-accent);
     outline: none;
 }
 
 a:visited {
-    color: var(--color-text);
+    color: var(--color-accent);
 }
 
 .blinking-link {
-    text-decoration: underline;
-    text-decoration-color: var(--color-primary);
-    animation: blink 2s infinite;
-    transition: color var(--transition-fast);
+    text-decoration: underline var(--color-accent);
+    text-decoration-color: var(--color-accent);
+    /* animation: blink 2s infinite;
+    transition: color var(--transition-fast); */
 }
 
 .blinking-link:hover,
 .blinking-link:focus {
-    color: var(--color-secondary);
+    color: var(--color-accent);
     animation-play-state: paused;
 }
 
@@ -339,6 +360,25 @@ a:visited {
 /* ==========================================================================
    Responsive Design
    ========================================================================== */
+@media (max-width: 1000px) {
+    .video-description-wrapper {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+    
+    .youtube-video-container {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+    
+    .video-description {
+        width: 100%;
+        align-self: stretch;
+    }
+}
+
 @media (max-width: 800px) {
     :root {
         --font-size-base: 14px;
@@ -361,11 +401,18 @@ a:visited {
         left: auto;
         right: auto;
         bottom: auto;
-        width: 100%;
-        height: auto;
+        width: 500px !important;
+        min-width: 500px !important;
+        max-width: 500px !important;
+        height: 300px !important;
+        min-height: 300px !important;
+        max-height: 300px !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
 
         z-index: 1;
-        margin-top: 0;
+        margin: 0 var(--spacing-lg) var(--spacing-lg) 0;
     }
     
     .slideshow-container {
@@ -375,6 +422,23 @@ a:visited {
         width: 90%;
         max-width: 500px;
         z-index: 1;
+    }
+    
+    .video-description-wrapper {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+    
+    .youtube-video-container {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+    
+    .video-description {
+        width: 100%;
+        align-self: stretch;
     }
     
     .menu-container {
@@ -422,6 +486,24 @@ a:visited {
         width: 95%;
         max-width: 400px;
         z-index: 1;
+    }
+    
+    .video-description-wrapper {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+    
+    .youtube-video-container {
+        width: 100%;
+        min-width: 0;
+        height: 250px;
+        margin-bottom: 0;
+    }
+    
+    .video-description {
+        width: 100%;
+        align-self: stretch;
     }
 }
 
@@ -501,13 +583,13 @@ a:visited {
 
 
 .cv-table .section-header th {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-md) 0 var(--spacing-xs) 0;
     border: none;
     margin-bottom: 0;
 }
 
 .cv-table .section-content {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
 }
 
 .cv-table .section-content tr:last-child td {
@@ -537,6 +619,17 @@ a:visited {
 
 .cv-table tr:last-child td {
     border-bottom: none;
+}
+
+/* ==========================================================================
+   Paint Border Canvas Styles
+   ========================================================================== */
+.paint-border-canvas {
+    /* Pixelated rendering for crisp, pixel-art style borders */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* ==========================================================================

@@ -45,13 +45,13 @@
         ||      .-______            .-______                                           ||
         ||      |       |           |       |                                          ||
         ||      |_______|           |_______|                                          ||
-        ||    <a class="blinking-link" id="home" href="invaders.html">space invaders</a>      <a class="blinking-link" id="home" href="engine.html">my graphics engine :)</a>                                ||
+        ||    <a class="blinking-link" id="home" href="invaders.html">space invaders</a>      <a class="blinking-link" id="home" href="engine.html">real-time graphics engine</a>                            ||
         ||                                                                             ||
         ||                                                                             ||
-        ||      .-______                                                               ||
-        ||      |       |                                                              ||
-        ||      |_______|                                                              ||
-        ||    <a class="blinking-link" id="home" href="mere-human-studios.html">mere human studio</a>                                                        ||
+        ||      .-______            .-______                                           ||
+        ||      |       |           |       |                                          ||
+        ||      |_______|           |_______|                                          ||
+        ||    <a class="blinking-link" id="home" href="mere-human-studios.html">mere human studio</a>   <a class="blinking-link" id="home" href="stephanie-dinkins-studio.html">stephanie dinkins studio</a>                             ||
         ||                                                                             ||
         ||                                                                             ||
         ||      .-______                                                               ||
@@ -78,5 +78,21 @@
     <script src="../js/config.js"></script>
     <script src="../js/utils.js"></script>
     <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>

@@ -38,35 +38,22 @@
                 </div>
 
                 <div class="ascii-container">
-                    <pre class="ascii" aria-label="ASCII art mere human studios screen">
-        ._______________________________________________________________________________.
-        |._____________________________________________________________________________.|
-        ||                                                                             ||
-        ||                                                                             ||
-        ||   <b>mere human studio</b> is a technical and creative studio focused on         ||
-        ||   aiding artists, educators, and nonprofits in their digital needs.         ||
-        ||                                                                             ||
-        ||   past projects have included web development, game development, and        ||
-        ||   virtual reality development.                                              ||
-        ||                                                                             ||
-        ||   email jessagillespie@gmail.com for portfolio.                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||        
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        ||                                                                             ||
-        |._____________________________________________________________________________.|
-        ._______________________________________________________________________________.
-                                        |          |
-                                        |          |
-                                     ___|..........|___
-                                    |__________________|
-                    </pre>
+                    <b>mere human studio</b>
+                    
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                            <img src="../images/homepage.png" alt="mere human studio homepage" style="width: 100%; height: 100%; object-fit: contain; object-position: left;">
+                        </div>
+                        
+                        <div class="video-description">
+                            <div>mere human studio is the technical and creative studio of jessa gillespie, focused on aiding artists, educators, and nonprofits in their digital needs.</div>
+
+                            <div>past projects have included web development, game development, and virtual reality development.</div>
+
+                            <div>email jessagillespie@gmail.com for portfolio.</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -76,5 +63,21 @@
     <script src="../js/config.js"></script>
     <script src="../js/utils.js"></script>
     <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
 </body>
 </html>
