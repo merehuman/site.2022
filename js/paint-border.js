@@ -140,50 +140,29 @@ class PaintBorder {
      * Create a canvas overlay positioned over the element
      */
     createCanvas() {
-        const rect = this.element.getBoundingClientRect();
-        const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Calculate element position relative to document
-        const elementX = rect.left + scrollX;
-        const elementY = rect.top + scrollY;
-        const elementWidth = rect.width;
-        const elementHeight = rect.height;
-
-        // Calculate canvas size to cover entire element plus border padding
-        const borderPadding = Math.max(
-            this.options.pixelSize * this.options.thickness,
-            this.options.cornerRadius || 0
-        ) + 10; // Extra padding for safety
-
-        // Calculate required canvas dimensions
-        // Ensure canvas covers full viewport and element, including margins
-        // Use the maximum of viewport width and element's right edge position
+        // Use viewport dimensions for border (fixed to viewport, not content)
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
-        const elementRight = elementX + elementWidth;
-        const elementBottom = elementY + elementHeight;
-        
-        // Canvas must be at least as wide as viewport to show margins
-        // Also account for element position if it extends beyond viewport
-        const documentWidth = Math.max(
-            viewportWidth,
-            elementRight + borderPadding,
-            document.documentElement.scrollWidth || viewportWidth
-        );
-        const documentHeight = Math.max(
-            viewportHeight,
-            elementBottom + borderPadding,
-            document.documentElement.scrollHeight || viewportHeight
-        );
 
-        const canvasWidth = Math.ceil(documentWidth);
-        const canvasHeight = Math.ceil(documentHeight);
+        // Get margin value from CSS (defaults to 1rem = 16px if not found)
+        const root = document.documentElement;
+        const marginValue = getComputedStyle(root).getPropertyValue('--spacing-md').trim() || '1rem';
+        const marginPx = parseFloat(marginValue) * (marginValue.includes('rem') ? 16 : 1);
+        
+        // Border dimensions match viewport minus margins
+        const borderWidth = viewportWidth - (marginPx * 2);
+        const borderHeight = viewportHeight - (marginPx * 2);
+        const borderX = marginPx;
+        const borderY = marginPx;
+
+        // Canvas size matches viewport
+        const canvasWidth = viewportWidth;
+        const canvasHeight = viewportHeight;
 
         // Create canvas element
         this.canvas = document.createElement('canvas');
         this.canvas.className = 'paint-border-canvas';
-        this.canvas.style.position = 'absolute';
+        this.canvas.style.position = 'fixed'; // Fixed to viewport
         this.canvas.style.pointerEvents = 'none';
         this.canvas.style.zIndex = '1000';
         this.canvas.style.left = '0';
@@ -198,12 +177,12 @@ class PaintBorder {
         // Append to body
         document.body.appendChild(this.canvas);
 
-        // Store element position relative to document
-        this.elementRect = {
-            x: elementX,
-            y: elementY,
-            width: elementWidth,
-            height: elementHeight
+        // Store border dimensions (viewport-based, not element-based)
+        this.borderRect = {
+            x: borderX,
+            y: borderY,
+            width: borderWidth,
+            height: borderHeight
         };
 
         // Update on scroll/resize
@@ -214,25 +193,18 @@ class PaintBorder {
      * Draw the pixelated border
      */
     drawBorder() {
-        if (!this.ctx || !this.elementRect) return;
+        if (!this.ctx || !this.borderRect) return;
 
-        const { x, y, width, height } = this.elementRect;
+        // Use viewport-based border dimensions
+        const { x, y, width, height } = this.borderRect;
         const pixelSize = this.options.pixelSize;
         const color = this.options.color;
         const thickness = this.options.thickness;
         const randomness = this.options.randomness;
         const cornerRadius = Math.max(0, this.options.cornerRadius || 0);
 
-        // Check if ascii-container exists and get its bottom position for alignment
-        let bottomY = y + height;
-        const asciiContainer = document.querySelector('.ascii-container');
-        if (asciiContainer) {
-            const asciiRect = asciiContainer.getBoundingClientRect();
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            const asciiBottom = asciiRect.bottom + scrollY;
-            // Align bottom border to ascii-container bottom with minimal spacing (1-2px)
-            bottomY = asciiBottom + 2;
-        }
+        // Bottom border uses the calculated border height (no ascii-container alignment for viewport border)
+        const bottomY = y + height;
 
         // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -521,58 +493,36 @@ class PaintBorder {
      */
     setupResizeHandler() {
         const updateBorder = () => {
-            if (!this.element || !this.canvas) return;
+            if (!this.canvas) return;
             
-            const rect = this.element.getBoundingClientRect();
-            const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-            // Calculate element position relative to document
-            const elementX = rect.left + scrollX;
-            const elementY = rect.top + scrollY;
-            const elementWidth = rect.width;
-            const elementHeight = rect.height;
-
-            this.elementRect = {
-                x: elementX,
-                y: elementY,
-                width: elementWidth,
-                height: elementHeight
-            };
-
-            // Calculate required canvas dimensions to cover entire element
-            // Ensure canvas covers full viewport and element, including margins
-            const borderPadding = Math.max(
-                this.options.pixelSize * this.options.thickness,
-                this.options.cornerRadius || 0
-            ) + 10; // Extra padding for safety
-
+            // Use viewport dimensions for border (fixed to viewport)
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
-            const elementRight = elementX + elementWidth;
-            const elementBottom = elementY + elementHeight;
+
+            // Get margin value from CSS
+            const root = document.documentElement;
+            const marginValue = getComputedStyle(root).getPropertyValue('--spacing-md').trim() || '1rem';
+            const marginPx = parseFloat(marginValue) * (marginValue.includes('rem') ? 16 : 1);
             
-            // Canvas must be at least as wide as viewport to show margins
-            // Also account for element position if it extends beyond viewport
-            const documentWidth = Math.max(
-                viewportWidth,
-                elementRight + borderPadding,
-                document.documentElement.scrollWidth || viewportWidth
-            );
-            const documentHeight = Math.max(
-                viewportHeight,
-                elementBottom + borderPadding,
-                document.documentElement.scrollHeight || viewportHeight
-            );
+            // Border dimensions match viewport minus margins
+            const borderWidth = viewportWidth - (marginPx * 2);
+            const borderHeight = viewportHeight - (marginPx * 2);
+            const borderX = marginPx;
+            const borderY = marginPx;
 
-            const canvasWidth = Math.ceil(documentWidth);
-            const canvasHeight = Math.ceil(documentHeight);
-
-            // Resize canvas if needed (only if it needs to be larger)
-            if (canvasWidth > this.canvas.width || canvasHeight > this.canvas.height) {
-                this.canvas.width = canvasWidth;
-                this.canvas.height = canvasHeight;
+            // Update canvas size to match viewport
+            if (this.canvas.width !== viewportWidth || this.canvas.height !== viewportHeight) {
+                this.canvas.width = viewportWidth;
+                this.canvas.height = viewportHeight;
             }
+
+            // Update border rect
+            this.borderRect = {
+                x: borderX,
+                y: borderY,
+                width: borderWidth,
+                height: borderHeight
+            };
 
             this.drawBorder();
         };
@@ -589,8 +539,8 @@ class PaintBorder {
             }
         };
 
+        // Only listen to resize since border is fixed to viewport
         window.addEventListener('resize', throttledUpdate);
-        window.addEventListener('scroll', throttledUpdate, { passive: true });
 
         // Store handlers for cleanup
         this.resizeHandler = throttledUpdate;
@@ -605,7 +555,6 @@ class PaintBorder {
         }
         if (this.resizeHandler) {
             window.removeEventListener('resize', this.resizeHandler);
-            window.removeEventListener('scroll', this.resizeHandler);
         }
         this.canvas = null;
         this.ctx = null;
