@@ -7,7 +7,7 @@
     <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
     <meta name="author" content="Jessa Gillespie">
     
-    <title>jessa gillespie - mere human studios</title>
+    <title>jessa gillespie - mere human studio</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
@@ -41,17 +41,55 @@
             <div class="ascii-container">
                     <b>mere human studio</b>
                     
+                    <div>
+                        <div>☆ mere human studio is the technical and creative studio of jessa gillespie, focused on aiding artists, educators, and nonprofits in their digital needs.</div>
+
+                        <div>past projects have included web development, game development, and virtual reality development.</div>
+
+                        <div>email jessagillespie@gmail.com for a full portfolio.</div>
+                    </div>
+
                     <div class="video-description-wrapper">
-                        <div class="youtube-video-container" data-skip-ascii-wrapper="true" style="display: flex; align-items: flex-start; justify-content: flex-start; width: auto; height: auto; max-width: fit-content;">
-                            <img src="../images/homepage.png" alt="mere human studio homepage" style="max-width: 100%; height: auto; object-fit: contain; object-position: left;">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: contain;">
+                                <source src="../images/d2e-prototype-text.mp4" type="video/mp4">
+                            </video>
                         </div>
                         
-                        <div class="video-description">
-                            <div>☆ mere human studio is the technical and creative studio of jessa gillespie, focused on aiding artists, educators, and nonprofits in their digital needs.</div>
+                        <div class="video-description" style="align-self: flex-start;">
+                            ☆ i engineered the interactive web edition of <b>Dust to Earth</b>, a play by shirley graham du bois. the project was facilitated by walter gordon and funded by a $70,000 grant from the National Endowment for the Humanities.
+                        </div>
+                    </div>
 
-                            <div>past projects have included web development, game development, and virtual reality development.</div>
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: contain;">
+                                <source src="../images/igvid.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        
+                        <div class="video-description" style="align-self: flex-start;">
+                            ☆ i designed and developed the website for the <b>Intersections of Gender Researcher Directory</b> at the University of Alberta.
+                        </div>
+                    </div>
 
-                            <div>email jessagillespie@gmail.com for portfolio.</div>
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <img id="bradnecyk-slideshow" src="../images/bradnecyk-VR.webp" alt="brad necyk studio vr installation" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        
+                        <div class="video-description" style="align-self: flex-start;">
+                            ☆ i developed virtual reality installations for Brad Necyk's exhibition <b>Telling Stories Otherwise</b>. a link to the body of work can be found <a class="blinking-link" href="https://www.bradnecyk.com/telling-stories-otherwise" target="_blank" rel="noopener noreferrer">here</a>.
+                        </div>
+                    </div>
+
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <img id="lost-garden-slideshow" src="../images/home.png" alt="lost garden game" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        
+                        <div class="video-description" style="align-self: flex-start;">
+                            ☆ i co-developed 3D assets, textures, and environment for <b>The Lost Garden</b>, a game built in Unity and available on itch.io <a class="blinking-link" href="https://audiogameslab.itch.io/the-lost-garden" target="_blank" rel="noopener noreferrer">here</a>. the game was co-created with Scott Smallwood and Nicolás Arnáez.
                         </div>
                     </div>
 
@@ -78,6 +116,50 @@
                 cornerRadius: 20
             });
             border.draw();
+        });
+
+        // Brad Necyk slideshow - switch between images
+        document.addEventListener('DOMContentLoaded', () => {
+            const bradnecykImage = document.getElementById('bradnecyk-slideshow');
+            const images = [
+                '../images/bradnecyk-VR.webp',
+                '../images/bradnecyk-VR1.webp'
+            ];
+            let currentImageIndex = 0;
+
+            function switchImage() {
+                if (bradnecykImage) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    bradnecykImage.src = images[currentImageIndex];
+                }
+            }
+
+            // Switch images every 3 seconds
+            setInterval(switchImage, 3000);
+        });
+
+        // Lost Garden slideshow - switch between images
+        document.addEventListener('DOMContentLoaded', () => {
+            const lostGardenImage = document.getElementById('lost-garden-slideshow');
+            const images = [
+                '../images/home.png',
+                '../images/lostgarden.png',
+                '../images/lostgarden1.png',
+                '../images/lostgarden4.png',
+                '../images/lostgarden5.png',
+                '../images/lostgarden6.jpg'
+            ];
+            let currentImageIndex = 0;
+
+            function switchImage() {
+                if (lostGardenImage) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    lostGardenImage.src = images[currentImageIndex];
+                }
+            }
+
+            // Switch images every 3 seconds
+            setInterval(switchImage, 3000);
         });
     </script>
 </body>

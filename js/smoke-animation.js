@@ -46,14 +46,14 @@ class SmokeAnimation {
     }
 
     init() {
-        // Wait a bit for the border to be drawn
+        // Wait a bit for the border to be drawn (reduced delay)
         setTimeout(() => {
             this.setupOriginalPositions();
             this.setupSmokeElements();
             this.calculateBorderPosition();
             this.startAnimation();
             this.startSpawning();
-        }, 500);
+        }, 200);
     }
 
     /**
@@ -214,12 +214,12 @@ class SmokeAnimation {
      * Start spawning new smoke in clumps from the chimney
      */
     startSpawning() {
-        // Start first clump after initial delay
+        // Start first clump after initial delay (reduced for faster start)
         const timeout = setTimeout(() => {
             if (!this.shouldRestart) {
                 this.spawnClump();
             }
-        }, 1000);
+        }, 300);
         this.spawnTimeouts.push(timeout);
     }
 
@@ -811,6 +811,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             smokeAnimation.borderNeedsUpdate = true;
         }, { passive: true });
-    }, 1000); // Give border time to draw
+    }, 300); // Give border time to draw (reduced for faster start)
 });
 

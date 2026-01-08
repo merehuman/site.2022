@@ -234,7 +234,7 @@ body {
     box-shadow: none;
 }
 
-/* Hide ASCII borders created by ascii-video-wrapper.js for videos in youtube-video-container */
+/* Hide ASCII borders for videos in youtube-video-container */
 .youtube-video-container .ascii-video-wrapper,
 .youtube-video-container .ascii-border {
     display: none !important;
