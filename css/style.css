@@ -395,9 +395,20 @@ a:hover {
         --font-size-base: 14px;
     }
     
+    .main {
+        height: calc(100vh - 2 * var(--spacing-md));
+        min-height: calc(100vh - 2 * var(--spacing-md));
+        max-height: calc(100vh - 2 * var(--spacing-md));
+        overflow: hidden;
+    }
+    
     .page-layout {
+        display: flex;
         flex-direction: column;
         gap: var(--spacing-sm);
+        height: 100%;
+        min-height: 100%;
+        box-sizing: border-box;
     }
     
     .content-layout {
@@ -410,6 +421,7 @@ a:hover {
         flex-direction: column;
         width: 100%;
         gap: var(--spacing-sm);
+        flex: 0 0 auto;
     }
     
     .ascii-container {
@@ -421,9 +433,10 @@ a:hover {
         width: 500px !important;
         min-width: 500px !important;
         max-width: 500px !important;
-        height: 300px !important;
-        min-height: 300px !important;
-        max-height: 300px !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
+        flex: 1 1 auto;
         box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: auto;
@@ -484,6 +497,15 @@ a:hover {
 @media (max-width: 480px) {
     :root {
         --font-size-base: 12px;
+    }
+    
+    .ascii-container {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
     }
     
     .ascii {
