@@ -53,7 +53,7 @@
 
                     <div class="video-description-wrapper">
                         <div class="youtube-video-container" data-skip-ascii-wrapper="true">
-                            <img src="../images/secretgarden.png" alt="secret garden project" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img id="secret-garden-image" src="../images/secretgarden.png" alt="secret garden project" style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
                         
                         <div class="video-description" style="align-self: flex-start;">☆ i collaborated on the development of 3D assets for Secret Garden, a web-based interactive oral history project, which premiered at Sundance Film Festival in 2021.
@@ -86,10 +86,15 @@
             border.draw();
         });
 
-        // Switch between ntoo.png and sdstudio1.png
+        // ntoo image reel
         document.addEventListener('DOMContentLoaded', () => {
             const ntooImage = document.getElementById('ntoo-image');
-            const images = ['../images/ntoo.png', '../images/sdstudio1.png'];
+            const images = [
+                '../images/ntoo.png',
+                '../images/sdstudio1.png',
+                '../images/ntooFord.webp',
+                '../images/ntooRedcat.jpg'
+            ];
             let currentImageIndex = 0;
 
             function switchImage() {
@@ -100,6 +105,25 @@
             }
 
             // Switch images every 3 seconds
+            setInterval(switchImage, 3000);
+        });
+
+        // Secret Garden image reel
+        document.addEventListener('DOMContentLoaded', () => {
+            const secretGardenImage = document.getElementById('secret-garden-image');
+            const images = [
+                '../images/secretgarden.png',
+                '../images/secretgardenSundance.png'
+            ];
+            let currentImageIndex = 0;
+
+            function switchImage() {
+                if (secretGardenImage) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    secretGardenImage.src = images[currentImageIndex];
+                }
+            }
+
             setInterval(switchImage, 3000);
         });
     </script>

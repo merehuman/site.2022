@@ -234,6 +234,49 @@ body {
     box-shadow: none;
 }
 
+/* Photo reel — same footprint as .youtube-video-container for project pages */
+.photo-reel-container {
+    position: relative;
+    width: 50%;
+    max-width: 100%;
+    min-width: 250px;
+    height: 300px;
+    display: block;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    overflow: hidden;
+    flex-shrink: 1;
+}
+
+.photo-reel {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+.photo-reel img {
+    flex: 0 0 auto;
+    height: 100%;
+    width: auto;
+    max-width: min(90vw, 520px);
+    object-fit: contain;
+    object-position: center;
+    scroll-snap-align: start;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
 /* Hide ASCII borders for videos in youtube-video-container */
 .youtube-video-container .ascii-video-wrapper,
 .youtube-video-container .ascii-border {
@@ -383,6 +426,12 @@ a:hover {
         min-width: 0;
         margin-bottom: 0;
     }
+
+    .photo-reel-container {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
     
     .video-description {
         width: 100%;
@@ -465,6 +514,12 @@ a:hover {
         min-width: 0;
         margin-bottom: 0;
     }
+
+    .photo-reel-container {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
     
     .video-description {
         width: 100%;
@@ -534,6 +589,13 @@ a:hover {
     }
     
     .youtube-video-container {
+        width: 100%;
+        min-width: 0;
+        height: 250px;
+        margin-bottom: 0;
+    }
+
+    .photo-reel-container {
         width: 100%;
         min-width: 0;
         height: 250px;

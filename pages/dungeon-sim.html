@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jessa gillespie - mere human studio">
+    <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
+    <meta name="author" content="Jessa Gillespie">
+    
+    <title>jessa gillespie - dungeon sim</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="../css/style.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <main class="main" role="main">
+        <div class="page-layout">
+            <div class="sidebar">
+                <div class="header-container">
+                    <h1>jessa gillespie</h1>
+                </div>
+                
+                <div class="menu-container">
+                    <a class="blinking-link" id="home" href="../index.html">go home...</a>
+                    <a class="blinking-link" id="info" href="info.html">info</a>
+                    <a class="blinking-link" href="cv.html">resume</a>
+                    <a class="blinking-link" id="home" href="desktop.html">projects</a>
+                    <a class="blinking-link" href="https://github.com/merehuman" target="_blank" rel="noopener noreferrer">github</a>
+                </div>
+            </div>
+
+            <div class="ascii-container">
+                    <b>dungeon sim!</b>
+                    
+                    <div class="video-description-wrapper">
+                        <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                            <img id="dungeon-sim-slideshow" src="../images/dungeon.png" alt="dungeon sim screenshot" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        
+                        <div class="video-description" style="align-self: flex-start;">
+                            <div>☆ an ttrpg simulator with original rules. create a party, explore the world, enter dungeons, and engage in a variety of encounters. still in progress!</div>
+
+                            <div>in collaboration with walter gordon.</div>
+                        </div>
+                    </div>
+
+                    <div>here is a link to the <a class="blinking-link" href="https://github.com/merehuman/dungeon-sim">github repo</a>.</div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        // Initialize paint border around main element
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+
+        // Dungeon sim slideshow — switch between images (same pattern as mere-human-studios)
+        document.addEventListener('DOMContentLoaded', () => {
+            const dungeonImage = document.getElementById('dungeon-sim-slideshow');
+            const images = [
+                '../images/dungeon.png',
+                '../images/dungeon2.png',
+                '../images/dungeon1.png'
+            ];
+            let currentImageIndex = 0;
+
+            function switchImage() {
+                if (dungeonImage) {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    dungeonImage.src = images[currentImageIndex];
+                }
+            }
+
+            setInterval(switchImage, 3000);
+        });
+    </script>
+</body>
+</html>
