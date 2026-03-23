@@ -448,7 +448,8 @@ a:hover {
         height: calc(100vh - 2 * var(--spacing-md));
         min-height: calc(100vh - 2 * var(--spacing-md));
         max-height: calc(100vh - 2 * var(--spacing-md));
-        overflow: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
     
     .page-layout {
@@ -487,7 +488,7 @@ a:hover {
         max-height: 100% !important;
         flex: 1 1 auto;
         box-sizing: border-box;
-        overflow-x: hidden;
+        overflow-x: auto;
         overflow-y: auto;
 
         z-index: 1;
@@ -561,6 +562,7 @@ a:hover {
         height: 100% !important;
         min-height: 0 !important;
         max-height: 100% !important;
+        overflow-x: auto;
     }
     
     .ascii {
