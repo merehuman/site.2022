@@ -6,6 +6,8 @@
  * Usage:
  *   const border = new PaintBorder(element, options);
  *   border.draw();
+ *
+ * options.mode: 'viewport' (default, full-page frame) | 'element' (single box overlay)
  */
 
 class PaintBorder {
@@ -29,6 +31,7 @@ class PaintBorder {
 
         // Default options
         this.options = {
+            mode: options.mode || 'viewport',
             pixelSize: options.pixelSize || 4,           // Size of each pixel in the border
             color: getBorderColor(),                      // Border color from CSS variable or option
             thickness: options.thickness || 1,          // Border thickness in pixels
@@ -44,7 +47,8 @@ class PaintBorder {
         this.canvas = null;
         this.ctx = null;
         this.animationFrame = null;
-        
+        this.resizeObserver = null;
+
         // Pre-generate random offsets for consistent but varied shapes
         this.randomOffsets = [];
         this.generateRandomOffsets();
@@ -140,6 +144,11 @@ class PaintBorder {
      * Create a canvas overlay positioned over the element
      */
     createCanvas() {
+        if (this.options.mode === 'element') {
+            this.createElementCanvas();
+            return;
+        }
+
         // Use viewport dimensions for border (fixed to viewport, not content)
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
@@ -187,6 +196,40 @@ class PaintBorder {
 
         // Update on scroll/resize
         this.setupResizeHandler();
+    }
+
+    /**
+     * Canvas sized to one element (absolute overlay; same draw logic as viewport border)
+     */
+    createElementCanvas() {
+        const el = this.element;
+        const w = Math.max(1, Math.round(el.offsetWidth));
+        const h = Math.max(1, Math.round(el.offsetHeight));
+
+        this.canvas = document.createElement('canvas');
+        this.canvas.className = 'paint-border-canvas paint-border-canvas--element';
+        this.canvas.setAttribute('aria-hidden', 'true');
+        this.canvas.style.position = 'absolute';
+        this.canvas.style.left = '0';
+        this.canvas.style.top = '0';
+        this.canvas.style.pointerEvents = 'none';
+        this.canvas.style.zIndex = '0';
+        this.canvas.width = w;
+        this.canvas.height = h;
+        this.canvas.style.width = `${w}px`;
+        this.canvas.style.height = `${h}px`;
+
+        this.ctx = this.canvas.getContext('2d');
+        el.insertBefore(this.canvas, el.firstChild);
+
+        this.borderRect = {
+            x: 0,
+            y: 0,
+            width: w,
+            height: h
+        };
+
+        this.setupElementResizeHandler();
     }
 
     /**
@@ -547,6 +590,48 @@ class PaintBorder {
     }
 
     /**
+     * Resize / layout for element-bound borders
+     */
+    setupElementResizeHandler() {
+        const updateBorder = () => {
+            if (!this.canvas || !this.element || !this.ctx) return;
+            const w = Math.max(1, Math.round(this.element.offsetWidth));
+            const h = Math.max(1, Math.round(this.element.offsetHeight));
+            if (this.canvas.width !== w || this.canvas.height !== h) {
+                this.canvas.width = w;
+                this.canvas.height = h;
+                this.canvas.style.width = `${w}px`;
+                this.canvas.style.height = `${h}px`;
+            }
+            this.borderRect = {
+                x: 0,
+                y: 0,
+                width: w,
+                height: h
+            };
+            this.drawBorder();
+        };
+
+        let ticking = false;
+        const throttled = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateBorder();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        if (typeof ResizeObserver !== 'undefined') {
+            this.resizeObserver = new ResizeObserver(throttled);
+            this.resizeObserver.observe(this.element);
+        }
+        window.addEventListener('resize', throttled);
+        this.resizeHandler = throttled;
+    }
+
+    /**
      * Remove the border
      */
     remove() {
@@ -555,6 +640,11 @@ class PaintBorder {
         }
         if (this.resizeHandler) {
             window.removeEventListener('resize', this.resizeHandler);
+            this.resizeHandler = null;
+        }
+        if (this.resizeObserver) {
+            this.resizeObserver.disconnect();
+            this.resizeObserver = null;
         }
         this.canvas = null;
         this.ctx = null;
@@ -573,4 +663,33 @@ class PaintBorder {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = PaintBorder;
 }
+
+/**
+ * Pixel borders on project titles and CV section headers (same algorithm as main frame).
+ * Border color uses --color-background so it reads on inverted (red) title boxes.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const edgeColor = getComputedStyle(root).getPropertyValue('--color-background').trim() || '#2e0901';
+
+    const boxOpts = {
+        mode: 'element',
+        pixelSize: 3,
+        thickness: 1,
+        randomness: 0.72,
+        clusterRandomness: true,
+        jitterAmount: 0.42,
+        shapeVariation: 0.38,
+        cornerRadius: 8,
+        color: edgeColor
+    };
+
+    document.querySelectorAll('.ascii-container > b, .cv-section-header-label').forEach((el) => {
+        try {
+            new PaintBorder(el, boxOpts).draw();
+        } catch (e) {
+            console.warn('PaintBorder element box', e);
+        }
+    });
+});
 

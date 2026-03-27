@@ -20,6 +20,7 @@
     --color-background: #2e0901;
     --color-text: #ff0000;
     --paint-border-color: #ff0000;  /* Paint border color - change this to update all borders */
+    --title-chip-radius: 8px;       /* Project/CV title pills — keep in sync with paint-border boxOpts.cornerRadius */
     
     /* Typography */
     --font-family-primary: 'Roboto Mono', monospace;
@@ -178,11 +179,27 @@ body {
     list-style-type: disc;
 }
 
+/* Inline <b> in body copy — default emphasis only */
 .ascii-container b {
     font-weight: bold;
     font-size: var(--font-size-large);
-    /* display: block; */
     margin-bottom: var(--spacing-md);
+}
+
+/* Project page titles (direct child <b> only — not intro bold in cv-header, etc.) */
+.ascii-container > b {
+    position: relative;
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--title-chip-radius);
+    overflow: hidden;
+}
+
+.ascii-container > b a {
+    color: inherit;
 }
 
 .video-description-wrapper {
@@ -213,6 +230,30 @@ body {
     flex: 1;
     min-width: 0;
     margin: 0;
+}
+
+/* Dungeon sim — screenshots left / copy right; row aligns with “dungeon sim!” heading */
+.dungeon-sim-page .dungeon-sim-media-row {
+    align-items: flex-start;
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.dungeon-sim-page .dungeon-sim-media-row .youtube-video-container {
+    margin-left: 0;
+    padding-left: 0;
+    /* Slightly taller than default 300px so contain scales the image up; aspect ratio unchanged */
+    height: 352px;
+}
+
+.dungeon-sim-page .youtube-video-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .youtube-video-container iframe {
@@ -651,8 +692,32 @@ a:hover {
     text-align: left;
 }
 
+/*
+ * CV vs project pages: .ascii-container div { margin: var(--spacing-sm) 0 } adds top margin
+ * on every wrapper div. Project pages often start with <b>, which only gets margin-bottom.
+ * Zero the top margin on the CV stack so the intro lines up with project titles.
+ */
+.page-layout--cv .ascii-container > .cv-content,
+.page-layout--cv .cv-content > .cv-table-container,
+.page-layout--cv .cv-table-container > .cv-header {
+    margin-top: 0;
+}
+
 .cv-header p {
     line-height: 1.6;
+}
+
+.cv-header p:first-child {
+    margin-top: 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Match main column top to left menu (below site name + sidebar gap) — CV + desktop-linked projects */
+@media (min-width: 801px) {
+    .page-layout--cv .ascii-container,
+    .page-layout--project .ascii-container {
+        margin-top: calc(2 * var(--spacing-md) + 3rem * 0.9 + var(--spacing-md));
+    }
 }
 
 .cv-table-container {
@@ -680,19 +745,37 @@ a:hover {
     padding: 0 var(--spacing-md);
 }
 
-.cv-section {
+/* Must beat .ascii-container div { margin: ... } (higher specificity) */
+.ascii-container .cv-section {
     margin-bottom: var(--spacing-xs);
 }
 
 
 .cv-table .section-header th {
-    padding: var(--spacing-md) 0 var(--spacing-xs) 0;
+    padding: var(--spacing-xs) 0;
     border: none;
     margin-bottom: 0;
+    text-decoration: none;
+    background: transparent;
+    color: inherit;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.cv-section-header-label {
+    position: relative;
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border-radius: var(--title-chip-radius);
+    overflow: hidden;
 }
 
 .cv-table .section-content {
-    padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+    padding: var(--spacing-xs);
 }
 
 .cv-table .section-content tr:last-child td {
@@ -735,10 +818,18 @@ a:hover {
     image-rendering: crisp-edges;
 }
 
+.paint-border-canvas--element {
+    box-sizing: border-box;
+}
+
 /* ==========================================================================
    Print Styles
    ========================================================================== */
 @media print {
+    .paint-border-canvas--element {
+        display: none !important;
+    }
+
     .menu,
     .menu-container {
         display: none !important;
@@ -762,6 +853,17 @@ a:hover {
     .cv-table .section-header th {
         border-top: 2px solid black;
         border-bottom: 2px solid black;
+        background: transparent;
+    }
+
+    .cv-section-header-label {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .ascii-container > b {
+        background-color: #000;
+        color: #fff;
     }
 }
 

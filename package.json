@@ -11,7 +11,8 @@
     "format": "npx prettier --write '**/*.{html,css,js}'",
     "validate": "npx html-validate *.html",
     "test": "echo 'No tests specified'",
-    "deploy": "echo 'Deploy to your hosting service'"
+    "deploy": "echo 'Deploy to your hosting service'",
+    "clean": "node cleanme.js"
   },
   "keywords": [
     "portfolio",
