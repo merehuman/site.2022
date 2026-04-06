@@ -256,6 +256,42 @@ body {
     object-position: left center;
 }
 
+/* Still-image project pages (e.g. mathLib, assetConverter) — fill the 50% column, align copy */
+.project-still-image .video-description-wrapper {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.project-still-image .youtube-video-container {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 250px;
+    height: auto;
+    min-height: 320px;
+    aspect-ratio: 16 / 9;
+}
+
+.project-still-image .youtube-video-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.ascii-container.project-still-image .video-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 .youtube-video-container iframe {
     position: relative;
     width: 100%;
@@ -466,6 +502,13 @@ a:hover {
         width: 100%;
         min-width: 0;
         margin-bottom: 0;
+    }
+
+    .project-still-image .youtube-video-container {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .photo-reel-container {
@@ -699,7 +742,8 @@ a:hover {
  */
 .page-layout--cv .ascii-container > .cv-content,
 .page-layout--cv .cv-content > .cv-table-container,
-.page-layout--cv .cv-table-container > .cv-header {
+.page-layout--cv .cv-table-container > .cv-header,
+.page-layout--project .ascii-container > .projects-index {
     margin-top: 0;
 }
 
@@ -742,17 +786,21 @@ a:hover {
 .cv-table th {
     font-weight: bold;
     font-size: var(--font-size-large);
-    padding: 0 var(--spacing-md);
+    padding: var(--spacing-xs);
 }
 
 /* Must beat .ascii-container div { margin: ... } (higher specificity) */
-.ascii-container .cv-section {
-    margin-bottom: var(--spacing-xs);
+.ascii-container .cv-section:not(:last-child) {
+    margin-bottom: var(--spacing-lg);
 }
 
+/* .section-content is a sibling of the header table, not inside .cv-table — pull body rows up to the chip */
+.ascii-container .cv-section > .section-content {
+    margin-top: 0;
+}
 
 .cv-table .section-header th {
-    padding: var(--spacing-xs) 0;
+    padding: var(--spacing-xs);
     border: none;
     margin-bottom: 0;
     text-decoration: none;
@@ -760,6 +808,11 @@ a:hover {
     color: inherit;
     font-weight: normal;
     vertical-align: top;
+}
+
+/* CV: header table is direct child of .cv-section — no extra gap before body table */
+.cv-section > .cv-table .section-header th {
+    padding-bottom: 0;
 }
 
 .cv-section-header-label {
@@ -774,11 +827,11 @@ a:hover {
     overflow: hidden;
 }
 
-.cv-table .section-content {
-    padding: var(--spacing-xs);
+.cv-section > .section-content {
+    padding: 0 var(--spacing-xs) var(--spacing-xs);
 }
 
-.cv-table .section-content tr:last-child td {
+.cv-section > .section-content tr:last-child td {
     border-bottom: none;
 }
 
@@ -805,6 +858,154 @@ a:hover {
 
 .cv-table tr:last-child td {
     border-bottom: none;
+}
+
+/* ==========================================================================
+   Projects index (desktop / projects hub)
+   ========================================================================== */
+.projects-index {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.project-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Beat .ascii-container div { margin: ... } inside each row */
+.project-row > div,
+.project-row > a {
+    margin: 0;
+}
+
+.project-row__preview-link {
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 0;
+    align-self: stretch;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-style: normal;
+    outline-offset: 4px;
+}
+
+.project-row__preview-link:hover,
+.project-row__preview-link:focus-visible {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-row__preview-link:hover .project-row__thumb,
+.project-row__preview-link:focus-visible .project-row__thumb {
+    filter: brightness(1.08);
+}
+
+.project-row__preview-link:focus-visible .project-row__thumb {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+}
+
+.project-header-link {
+    display: table;
+    width: auto;
+    max-width: 100%;
+    text-decoration: none;
+    color: inherit;
+    font-style: normal;
+    outline-offset: 4px;
+}
+
+.project-header-link:hover,
+.project-header-link:focus-visible {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-header-link .cv-table {
+    margin: 0;
+}
+
+.project-header-link:hover .cv-section-header-label,
+.project-header-link:focus-visible .cv-section-header-label {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    filter: none;
+}
+
+.project-header-link:focus-visible {
+    outline: 2px solid var(--color-text);
+}
+
+.project-row__preview {
+    width: 100%;
+    height: 100%;
+}
+
+.project-row__thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--title-chip-radius);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.project-row__thumb--github {
+    object-fit: contain;
+    padding: var(--spacing-md);
+    box-sizing: border-box;
+    background: color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.project-row__body {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.project-row__body .cv-table {
+    margin: 0;
+}
+
+.project-row__body .cv-table .section-header th {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Beat .ascii-container p { margin: ... } */
+.ascii-container .project-row__desc {
+    margin: var(--spacing-xs) 0 0 0;
+    padding: 0;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    .project-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-row__preview-link {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .project-row__thumb {
+        max-height: 220px;
+    }
 }
 
 /* ==========================================================================

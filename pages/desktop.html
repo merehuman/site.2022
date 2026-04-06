@@ -23,7 +23,7 @@
 
 <body>
     <main class="main" role="main">
-        <div class="page-layout">
+        <div class="page-layout page-layout--project">
             <div class="sidebar">
                 <div class="header-container">
                     <h1>jessa gillespie</h1>
@@ -39,42 +39,152 @@
             </div>
 
             <div class="ascii-container">
-                    <pre class="ascii" aria-label="ASCII art desktop screen">
+                    <nav class="projects-index" aria-label="Projects">
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="engine.html" tabindex="-1" aria-label="graphics engine project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/engineDemo.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="engine.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">graphics engine | C++</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">A data-driven, real-time graphics engine with a focus on performance, extensibility, and low-level systems programming.</p>
+                            </div>
+                        </div>
 
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="mathLib.html" tabindex="-1" aria-label="simd math library project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/math1.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="mathLib.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">simd math library | C++</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">A SIMD-optimized linear algebra, geometry, and trigonometry library for graphics programming.</p>
+                            </div>
+                        </div>
 
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="assetConverter.html" tabindex="-1" aria-label="asset converter project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/assetCLI.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="assetConverter.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">asset converter | C++</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">An CLI tool to serialize 3D assets, textures, sprites, and fonts using protocol buffers.</p>
+                            </div>
+                        </div>
 
-        ._________________________________________________________________________________.
-        |._______________________________________________________________________________.|
-        ||                                                                               ||
-        ||      .-______            .-______            .-______                         ||
-        ||      |       |           |       |           |       |                        ||
-        ||      |_______|           |_______|           |_______|                        ||
-        ||   <a class="blinking-link" id="home" href="engine.html">graphics engine!</a>     <a class="blinking-link" id="home" href="invaders.html">space invaders</a>       <a class="blinking-link" id="home" href="dungeon-sim.html">dungeon sim</a>                       ||
-        ||                                                                               ||
-        ||                                                                               ||
-        ||      .-______                                .-______                         ||
-        ||      |       |                               |       |                        ||
-        ||      |_______|                               |_______|                        ||
-        ||   <a class="blinking-link" id="home" href="mere-human-studios.html">mere human studio</a>                    <a class="blinking-link" id="home" href="stephanie-dinkins-studio.html">stephanie dinkins studio</a>               ||
-        ||                                                                               ||
-        ||                                                                               ||
-        ||      .-______                                                                 ||
-        ||      |       |                                                                ||
-        ||      |_______|                                                                ||
-        ||       <a class="blinking-link" id="home" href="https://github.com/merehuman">github</a>                                                                  ||
-        ||                                                                               ||
-        ||                                                                               ||
-        |._______________________________________________________________________________.|
-        ._________________________________________________________________________________.
-                                            |          |
-                                            |          |
-                                         ___|..........|___
-                                        |__________________|
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="invaders.html" tabindex="-1" aria-label="space invaders project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="https://img.youtube.com/vi/bl0PmXG-MsA/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="invaders.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">space invaders | C#</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">A clone of the 1978 arcade game, built using real-time architecture and design patterns.</p>
+                            </div>
+                        </div>
 
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="dungeon-sim.html" tabindex="-1" aria-label="dungeon sim project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/dungeonCrop.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="dungeon-sim.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">dungeon sim | C# / .NET</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">A TTRPG-style simulator with original rules, create a party, explore the world, enter dungeons, and engage in a variety of encounters.</p>
+                            </div>
+                        </div>
 
-                    </pre>
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="mere-human-studios.html" tabindex="-1" aria-label="mere human studio project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/dragonleg.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="mere-human-studios.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">mere human studio</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">The creative and technical studio of jessa gillespie.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="stephanie-dinkins-studio.html" tabindex="-1" aria-label="stephanie dinkins studio project page">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/sdstudio1.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="stephanie-dinkins-studio.html">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">stephanie dinkins studio</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">Work done in collaboration with Stephanie Dinkins Studio.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-row">
+                            <a class="project-row__preview-link" href="https://github.com/merehuman" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-label="merehuman on GitHub">
+                                <div class="project-row__preview">
+                                    <img class="project-row__thumb" src="../images/homepage.png" width="480" height="360" alt="" loading="lazy">
+                                </div>
+                            </a>
+                            <div class="project-row__body">
+                                <a class="project-header-link" href="https://github.com/merehuman" target="_blank" rel="noopener noreferrer">
+                                    <table class="cv-table">
+                                        <tr class="section-header">
+                                            <th colspan="3"><span class="cv-section-header-label">github</span></th>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <p class="project-row__desc">Source code and repositories for engines, games, tools, and experiments!</p>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </div>
         </div>
     </main>
 

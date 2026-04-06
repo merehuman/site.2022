@@ -7,7 +7,7 @@
     <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
     <meta name="author" content="Jessa Gillespie">
     
-    <title>jessa gillespie - dungeon sim</title>
+    <title>jessa gillespie - math library</title>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" as="style">
@@ -38,22 +38,25 @@
                 </div>
             </div>
 
-            <div class="ascii-container dungeon-sim-page">
-                    <b>dungeon sim!</b>
-                    <div class="video-description-wrapper dungeon-sim-media-row">
+            <div class="ascii-container project-still-image">
+                    <b>simd math library!</b>
+                    
+                    <div class="video-description-wrapper">
                         <div class="youtube-video-container" data-skip-ascii-wrapper="true">
-                            <img id="dungeon-sim-slideshow" src="../images/dungeon.png" alt="dungeon sim screenshot">
+                            <img id="mathlib-slideshow" src="../images/math1.png" alt="simd math library overview">
                         </div>
-                        <div class="video-description">
-                            <div>A TTRPG simulator with original rules. Create a party, explore the world, enter dungeons, and engage in a variety of encounters. Still in progress!</div>
-
-                            <div>Built in collaboration with Walter Gordon, using C# and the .NET framework.</div>
+                        
+                        <div class="video-description">A SIMD-optimized C++ math library that is focused on linear algebra for high-performance graphics programming. It supports vectors, matrices, quaternions, transforms, trigonometry, and common graphics utilities.
+                            <br><br>
+                            The project has a clear public API, and includes documentation of memory alignment, math conventions, and integration requirements. 
+                            <br><br>
+                            For complex operations, it consistently tests 4x faster than baseline implementations. Reach out via <a href="mailto:jessagillespie@gmail.com">email</a> if you want the test suite.
                         </div>
                     </div>
 
-                    <div>Here is a link to the <a class="blinking-link" href="https://github.com/merehuman/dungeon-sim">github repo</a>.</div>
+                    <div>Here is a link to the <a class="blinking-link" href="https://github.com/merehuman/mathLib">github repo</a>.</div>
 
-            </div>
+                </div>
         </div>
     </main>
 
@@ -63,7 +66,6 @@
     <script src="../js/main.js" defer></script>
     <script src="../js/paint-border.js"></script>
     <script>
-        // Initialize paint border around main element
         document.addEventListener('DOMContentLoaded', () => {
             const border = new PaintBorder('main', {
                 pixelSize: 3,
@@ -75,26 +77,17 @@
                 cornerRadius: 20
             });
             border.draw();
-        });
 
-        // Dungeon sim slideshow — switch between images (same pattern as mere-human-studios)
-        document.addEventListener('DOMContentLoaded', () => {
-            const dungeonImage = document.getElementById('dungeon-sim-slideshow');
-            const images = [
-                '../images/dungeon.png',
-                '../images/dungeon2.png',
-                '../images/dungeon1.png'
-            ];
-            let currentImageIndex = 0;
+            const img = document.getElementById('mathlib-slideshow');
+            const slides = ['../images/math1.png', '../images/math2.png'];
+            let idx = 0;
 
-            function switchImage() {
-                if (dungeonImage) {
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    dungeonImage.src = images[currentImageIndex];
-                }
+            if (img) {
+                setInterval(() => {
+                    idx = (idx + 1) % slides.length;
+                    img.src = slides[idx];
+                }, 1800);
             }
-
-            setInterval(switchImage, 3000);
         });
     </script>
 </body>
