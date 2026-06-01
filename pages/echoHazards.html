@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jessa gillespie - mere human studio">
+    <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
+    <meta name="author" content="Jessa Gillespie">
+
+    <title>jessa gillespie - echoHazards</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+        as="style">
+    <link rel="preload" href="../css/style.css" as="style">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <main class="main" role="main">
+        <div class="page-layout page-layout--project">
+            <div class="sidebar">
+                <div class="header-container">
+                    <h1>jessa gillespie</h1>
+                </div>
+
+                <div class="menu-container">
+                    <a class="blinking-link" id="home" href="../index.html">go home...</a>
+                    <a class="blinking-link" id="info" href="info.html">info</a>
+                    <a class="blinking-link" href="cv.html">resume</a>
+                    <a class="blinking-link" id="home" href="desktop.html">projects</a>
+                    <a class="blinking-link" href="https://github.com/merehuman" target="_blank"
+                        rel="noopener noreferrer">github</a>
+                </div>
+            </div>
+
+            <div class="ascii-container project-still-image">
+                <b>echoHazards | Python / FastAPI / PostGIS</b>
+
+                <div class="video-description-wrapper">
+                    <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                        <img src="../images/echoHazards1.png" alt="echoHazards proximity search interface">
+                    </div>
+
+                    <div class="video-description">A data pipeline and API that consolidates environmental incident data
+                        and serves geospatial proximity queries.
+                        <br><br>
+                        This project is a response to the obfuscation of important public data. The government is required 
+                        to publish data about spills, violations, and chemical releases, but the data lives in separate 
+                        systems with different shapes. If you want to understand what has been reported near a specific 
+                        place — a watershed, a neighborhood, a facility — you end up hunting across a huge number of 
+                        sources instead of searching by location. 
+                        <br><br>
+                        The pipeline ingests public incident records, maps them into a single incident model, and keeps
+                        the full original record alongside the normalized fields so nothing from the source is discarded
+                        when formats do not line up. As this data is often the most useful to understand within a 
+                        geographic context, the API and frontend are designed to support proximity searches with the 
+                        goal of incorporating filters for date range, facility type, and more.
+                    </div>
+                </div>
+
+                <div>Here is a link to the <a class="blinking-link" href="https://github.com/merehuman/echoHazards">github repo</a>
+                    and the <a class="blinking-link" href="https://echo-hazards.up.railway.app" target="_blank"
+                        rel="noopener noreferrer">live deployment</a>.</div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+        });
+    </script>
+</body>
+
+</html>
