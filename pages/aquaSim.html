@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jessa gillespie - mere human studio">
+    <meta name="keywords" content="developer, engineer, creative, technologist, artist, programmer, curator">
+    <meta name="author" content="Jessa Gillespie">
+
+    <title>jessa gillespie - aquaSim</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+        as="style">
+    <link rel="preload" href="../css/style.css" as="style">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+
+<body>
+    <main class="main" role="main">
+        <div class="page-layout page-layout--project">
+            <div class="sidebar">
+                <div class="header-container">
+                    <h1>jessa gillespie</h1>
+                </div>
+
+                <div class="menu-container">
+                    <a class="blinking-link" id="home" href="../index.html">go home...</a>
+                    <a class="blinking-link" id="info" href="info.html">info</a>
+                    <a class="blinking-link" href="cv.html">resume</a>
+                    <a class="blinking-link" id="home" href="desktop.html">projects</a>
+                    <a class="blinking-link" href="https://github.com/merehuman" target="_blank"
+                        rel="noopener noreferrer">github</a>
+                </div>
+            </div>
+
+            <div class="ascii-container project-still-image">
+                <b>aquaSim | React / TypeScript / WebAssembly</b>
+
+                <div class="video-description-wrapper">
+                    <div class="youtube-video-container" data-skip-ascii-wrapper="true">
+                        <img id="aquaSim-slideshow" src="../images/aquaSim1.png" alt="aquaSim screenshot">
+                    </div>
+
+                    <div class="video-description">An aquatic ecosystem simulation of vernal pools. In progress.
+
+                        <br><br>
+                        This project is a full stack web application with a decoupled frontend and backend. 
+                        The frontend is built with React and TypeScript, and the backend is a Drupal 10 content management system with custom species and environmental scenarios.
+                        The simulation is built with WebAssembly and runs in the browser.
+                        <br><br>
+                        The intention of this project is to be a learning tool for myself and others to understand the vital importance of these transient and fragile ecosystems.
+                        The theoretical framework for the simulation models a simplified freshwater pond cycle with nutrients, algae, invertebrates, and decomposers.
+                        The mathematics draw from the Lotka-Volterra equations for predator-prey interactions, Monod kinetics for algae growth, and Holling type II kinetics for invertebrate growth.
+                        As vernal pools fill with winter rains, and then dry out during the summer months, each yearly cycle (or hydroperiod) is represented by a single simulation.
+                    </div>
+                </div>
+
+                <!-- <div>Here is a link to the <a class="blinking-link" href="https://github.com/merehuman/aquaSim">github repo</a>.</div> -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/paint-border.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const border = new PaintBorder('main', {
+                pixelSize: 3,
+                thickness: 1,
+                randomness: 0.5,
+                clusterRandomness: true,
+                jitterAmount: 0.25,
+                shapeVariation: 0.15,
+                cornerRadius: 20
+            });
+            border.draw();
+
+            const img = document.getElementById('aquaSim-slideshow');
+            const slides = [
+                '../images/aquaSim1.png',
+                '../images/aquaSim2.png',
+                '../images/aquaSim3.png',
+                '../images/aquaSim4.png'
+            ];
+            let idx = 0;
+
+            if (img) {
+                setInterval(() => {
+                    idx = (idx + 1) % slides.length;
+                    img.src = slides[idx];
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+
+</html>
