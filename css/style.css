@@ -196,6 +196,9 @@ body {
     margin-bottom: var(--spacing-md);
     border-radius: var(--title-chip-radius);
     overflow: hidden;
+    /* overflow:hidden would otherwise let flex shrink the chip under the image on mobile */
+    flex-shrink: 0;
+    align-self: flex-start;
 }
 
 .ascii-container > b a {
@@ -509,6 +512,8 @@ a:hover {
         width: 100%;
         max-width: 100%;
         min-width: 0;
+        /* Let aspect-ratio size the media; desktop min-height fights the title on short viewports */
+        min-height: 0;
     }
 
     .photo-reel-container {
@@ -564,9 +569,9 @@ a:hover {
         left: auto;
         right: auto;
         bottom: auto;
-        width: 500px !important;
-        min-width: 500px !important;
-        max-width: 500px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
         height: 100% !important;
         min-height: 0 !important;
         max-height: 100% !important;
@@ -574,9 +579,28 @@ a:hover {
         box-sizing: border-box;
         overflow-x: auto;
         overflow-y: auto;
-
         z-index: 1;
-        margin: 0 var(--spacing-lg) var(--spacing-lg) 0;
+        margin: 0 0 var(--spacing-md) 0;
+    }
+
+    /* Scroll instead of crushing title/media when the column is viewport-height locked */
+    .ascii-container > * {
+        flex-shrink: 0;
+    }
+
+    /*
+     * Scale ASCII with the viewport, but never jump larger than the mobile base size.
+     * (Previously 3vw alone was ~24px at 800px vs 14px base.)
+     * min-width:0 + width:100% keeps the div at the mobile column width; art scrolls inside.
+     */
+    .ascii {
+        flex-shrink: 1;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: min(var(--font-size-base), 3vw);
+        overflow-x: auto;
     }
     
     .slideshow-container {
@@ -626,31 +650,11 @@ a:hover {
         font-size: 3rem;
         line-height: 0.85;
     }
-    
-    .ascii {
-        width: 95vw;
-        font-size: 3vw;
-        overflow-x: auto;
-    }
 }
 
 @media (max-width: 480px) {
     :root {
         --font-size-base: 12px;
-    }
-    
-    .ascii-container {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        min-height: 0 !important;
-        max-height: 100% !important;
-        overflow-x: auto;
-    }
-    
-    .ascii {
-        font-size: 2.5vw;
     }
     
     .menu-container h1 {
